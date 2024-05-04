@@ -1,5 +1,6 @@
 #include "mbed.h"
 #include "LSM6DSLSensor.h"
+#include <cmath>
 
 #define PI 3.141592654
 
@@ -8,7 +9,9 @@ static LSM6DSLSensor acc_gyro(&devI2c,0xD4,D4,D5); // high address
 
 
 float computeAngle(int x, int y, int z){
-    float res = 0;
+
+    // calculate angle in degrees
+    float res = atan(x/sqrt(pow(y, 2)+pow(z, 2)))*180/PI;
 
     return res;
 }
