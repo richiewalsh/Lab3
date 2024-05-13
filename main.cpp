@@ -4,6 +4,8 @@
 
 #define PI 3.141592654
 
+//Example result: LSM6DSL:     -3,      8,   1025, -0.17
+
 static DevI2C devI2c(PB_11,PB_10);
 static LSM6DSLSensor acc_gyro(&devI2c,0xD4,D4,D5); // high address
 
